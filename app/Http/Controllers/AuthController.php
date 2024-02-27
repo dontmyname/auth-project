@@ -35,7 +35,7 @@ class AuthController extends Controller
         $form = $req->only('name', 'password');
 
         if (Auth::attempt($form)) {
-            return redirect('/test');
+            return redirect('/admin/');
         }
 
         return back()->with('error', 'User credentials are not correct');

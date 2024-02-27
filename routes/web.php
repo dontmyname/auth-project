@@ -31,6 +31,6 @@ Route::get('/logout', function () {
     return redirect('/login');
 });
 
-Route::get('/test', function () {
-    return view('user');
+Route::get('/admin/', function () {
+    return view('welcome');
 })->middleware('auth');
