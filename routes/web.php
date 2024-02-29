@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/', [UserController::class, 'index']);
 
 
-    Route::get('/edit_user', [UserController::class,'show']);
-    Route::post('/update_user', [UserController::class,'update_user']);
+    Route::get('/edit_user', [UserController::class, 'show']);
+    Route::post('/update_user', [UserController::class, 'update_user']);
+
+    Route::get('/products', [ProductController::class, 'index']);
+    Route::post('/products/create', [ProductController::class, 'store']);
 });
