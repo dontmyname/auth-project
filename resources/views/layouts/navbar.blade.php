@@ -33,6 +33,18 @@
                 <p class="preview-subject mb-1">Settings</p>
               </div>
             </a>
+
+            <div class="dropdown-divider"></div>
+            <a href="/admin/my_products" class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-discord text-info"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject mb-1">My Products</p>
+                </div>
+              </a>
             <div class="dropdown-divider"></div>
             <a href="/logout" class="dropdown-item preview-item">
               <div class="preview-thumbnail">

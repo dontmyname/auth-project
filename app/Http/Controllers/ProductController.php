@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,5 +39,10 @@ class ProductController extends Controller
         ]);
 
         return back()->with('success', 'Product added successfully!');
+    }
+
+    function my_products()
+    {
+        return view('my_products', ['products' => Product::where('user_id', Auth::user()->id)->get()]);
     }
 }
