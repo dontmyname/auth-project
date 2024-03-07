@@ -45,4 +45,16 @@ class ProductController extends Controller
     {
         return view('my_products', ['products' => Product::where('user_id', Auth::user()->id)->get()]);
     }
+
+    function delete_product($id)
+    {
+        $message = 'It\'s not your product!!!';
+
+        if (Product::where('id', $id)->where('user_id', Auth::id())->first()) {
+            Product::where('id', $id)->where('user_id', Auth::id())->first()->delete();
+            $message = 'Deleted successfully';
+        }
+
+        return back()->with('success', $message);
+    }
 }

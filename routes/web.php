@@ -46,4 +46,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::get('/my_products', [ProductController::class, 'my_products']);
 
+    Route::get('/delete_product/{id}',[ProductController::class,'delete_product']);
+
 });

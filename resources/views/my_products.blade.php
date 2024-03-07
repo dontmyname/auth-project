@@ -1,12 +1,17 @@
 @extends('layouts.backend')
 @section('main')
+    @if (Session::has('success'))
+        <div class="alert alert-secondary">{{ Session::get('success') }}</div>
+    @endif
+
     <div class="row">
 
         @foreach ($products as $item)
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{ $item->name }}</h4>
+                        <h4 class="card-title">{{ $item->name }} <a href="/admin/delete_product/{{ $item->id }}"
+                                style="float: right"><i class="mdi mdi-archive text-danger"></i></a></h4>
 
                         <img src="{{ asset($item->photo) }}" width="fit-content" height="200px" alt="">
 
@@ -20,7 +25,7 @@
                                     <div class="preview-item-content d-flex flex-grow">
                                         <div class="flex-grow">
                                             <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                                <h6 class="preview-subject">{{ $item->get_user->name }}</h6>
+                                                <h6 class="preview-subject">{{ $item->get_user->name }} </h6>
                                                 <p class="text-muted text-small">{{ $item->qty }} шт.</p>
                                             </div>
                                             <p class="text-muted">{{ number_format($item->price, 0, '.', ' ') }} sum</p>
