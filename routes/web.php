@@ -39,13 +39,21 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
 
     Route::get('/edit_user', [UserController::class, 'show']);
+
     Route::post('/update_user', [UserController::class, 'update_user']);
 
     Route::get('/products', [ProductController::class, 'index']);
-    Route::post('/products/create', [ProductController::class, 'store']);
+
+    Route::post('/products/create', [ProductController::class, 'store']);   
 
     Route::get('/my_products', [ProductController::class, 'my_products']);
 
     Route::get('/delete_product/{id}',[ProductController::class,'delete_product']);
+
+
+Route::get('/edit_product/{id}', [ProductController::class, 'view_edit_product']);
+
+Route::post('/update_product/{id}', [ProductController::class, 'update_product']);
+
 
 });

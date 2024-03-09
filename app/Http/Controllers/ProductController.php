@@ -57,4 +57,35 @@ class ProductController extends Controller
 
         return back()->with('success', $message);
     }
+    function update_product(Request $req, $id)
+    {
+        Product::find($id)->update([
+            'name' => $req->name,
+            'qty' => $req->qty,
+            'price' => $req->price,
+            'brand' => $req->brand
+        ]);
+
+        $path = '';
+
+        if ($req->file('photo')) {
+            $req->file('photo')->store('public');
+            $path = 'storage/' . $req->file('photo')->hashName();
+            Product::find($id)->update([
+                'photo' => $path
+            ]);
+        };
+
+        return redirect('/admin/my_products');
+    }
+    function view_edit_product($id)
+    {
+        $product = product::where('id', '=', $id)->where('user_id', Auth::id())->first();
+
+        if ($product) {
+            return view('edit-product', ['product' => $product]);
+        } else {
+            abort(404);
+        }
+    }
 }

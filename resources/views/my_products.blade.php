@@ -11,7 +11,10 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">{{ $item->name }} <a href="/admin/delete_product/{{ $item->id }}"
-                                style="float: right"><i class="mdi mdi-archive text-danger"></i></a></h4>
+                                style="float: right"><i class="mdi mdi-archive text-danger"></i></a>
+                                <a href="/admin/edit_product/{{ $item->id }}"
+                                    style="float: right"><i class="mdi mdi-archive text-info"></i></a>
+                            </h4>
 
                         <img src="{{ asset($item->photo) }}" width="fit-content" height="200px" alt="">
 
@@ -19,7 +22,7 @@
                             <div class="preview-list w-100">
                                 <div class="preview-item p-0">
                                     <div class="preview-thumbnail">
-                                        <img src="http://auth.loc/assets/images/faces/face15.jpg" class="rounded-circle"
+                                        <img src="https://sun9-2.userapi.com/impg/ImJ9FHAzgWlhKxvZzq_kY1qhdXftzXznBrCWpg/JHCKQVo-W6A.jpg?size=984x984&quality=95&sign=6b911118dd3b0f3bf5da5a90564bc1de&c_uniq_tag=-e2pVl6SxjwdaptRuxAm5IVPqwrXaG19Ydk0a9Xblvc&type=album" class="rounded-circle"
                                             alt="">
                                     </div>
                                     <div class="preview-item-content d-flex flex-grow">
