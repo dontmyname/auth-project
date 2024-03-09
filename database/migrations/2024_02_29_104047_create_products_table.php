@@ -24,6 +24,7 @@ return new class extends Migration
             $table->date('production_date');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
+            $table->softDeletes();
         });
     }
 
